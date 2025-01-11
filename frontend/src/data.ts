@@ -1,4 +1,5 @@
 import { Item } from "./app/shared/models/Item"; 
+import { Tag } from "./app/shared/models/Tag";
 
 export const sample_items: Item[] = [
     {
@@ -74,4 +75,20 @@ export const sample_items: Item[] = [
       description: 'Compact coffee maker with programmable timer and multiple brew settings.'
     }
   ];
+  
+  export const sample_tags: Tag[] = [
+    { name: 'All', count: 8 },
+    { name: 'popular', count: 8 },
+    { name: 'electronics', count: 4 },
+    { name: 'audio', count: 2 },
+    { name: 'gaming', count: 1 },
+    { name: 'sports', count: 2 },
+    { name: 'fitness', count: 2 },
+    { name: 'wearable', count: 1 },
+    { name: 'accessory', count: 1 },
+    { name: 'fashion', count: 1 },
+    { name: 'kitchen', count: 1 },
+    { name: 'appliance', count: 1 }
+  ];
+  
   
