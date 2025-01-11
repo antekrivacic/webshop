@@ -28,5 +28,8 @@ export class ItemService {
     this.getAll().filter(item => item.tags?.includes(tag));
   }
 
-
+  getItemById(id: string):Item{
+    return this.getAll().find(item => item.id == id) ?? new Item();
+  }
+  
 }
