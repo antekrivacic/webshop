@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Item } from '../../../shared/models/Item';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ItemService } from '../../../services/item.service';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-item-page',
@@ -13,11 +14,18 @@ import { ItemService } from '../../../services/item.service';
 export class ItemPageComponent {
 
   item!: Item;
-  constructor(activatedRoute : ActivatedRoute, itemService: ItemService){
-    activatedRoute.params.subscribe(params => {
-      this.item = itemService.getItemById(params.id);
+  constructor(activatedRoute : ActivatedRoute, itemService: ItemService,
+    private cartService: CartService, 
+    private router: Router) {
+
+    activatedRoute.params.subscribe((params) => {
+      if(params.id)
+        this.item = itemService.getItemById(params.id);
     }); 
   }
 
-  
+  addToCart(){
+    this.cartService.addToCart(this.item);
+    this.router.navigateByUrl('/cart-page');
+  }
 }

@@ -78,7 +78,7 @@ export const sample_items: Item[] = [
   
   export const sample_tags: Tag[] = [
     { name: 'All', count: 8 },
-    { name: 'popular', count: 8 },
+    { name: 'popular', count: 6 },
     { name: 'electronics', count: 4 },
     { name: 'audio', count: 2 },
     { name: 'gaming', count: 1 },
