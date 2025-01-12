@@ -1,5 +1,9 @@
-
-<div class="container">
+<app-not-found
+    [visible]="!item.id"
+    notFoundMessage="Item Not Found"
+    resetLinkText="Back to Homepage">
+</app-not-found>
+<div class="container" *ngIf="item.id">
     <img [src] = "item.imageUrl" alt="item.name">
 
     <div class="details">
