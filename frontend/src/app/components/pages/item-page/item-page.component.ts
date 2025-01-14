@@ -20,8 +20,10 @@ export class ItemPageComponent {
 
     activatedRoute.params.subscribe((params) => {
       if(params.id)
-        this.item = itemService.getItemById(params.id);
-    }); 
+        itemService.getItemById(params.id).subscribe(serverItem => {
+          this.item = serverItem;
+      });
+    }) 
   }
 
   addToCart(){
