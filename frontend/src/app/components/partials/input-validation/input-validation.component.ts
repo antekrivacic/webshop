@@ -1,9 +1,13 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
+import { min } from 'rxjs';
 
 const VALIDATORS_MESSAGES:any = {
   required : 'Should not be empty',
   email: 'Email is not valid',
+  minlength: 'Field is too short',
+  notMatch : 'Passwords do not match'
+
 }
 
 @Component({
