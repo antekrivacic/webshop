@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -43,5 +43,6 @@ export class LoadingInterceptor implements HttpInterceptor {
       }, 300);
     }
   }
+
 
 }
