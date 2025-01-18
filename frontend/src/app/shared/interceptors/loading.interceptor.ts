@@ -38,7 +38,9 @@ export class LoadingInterceptor implements HttpInterceptor {
   handleHideLoading(){
     pendingRequests = pendingRequests - 1;
     if(pendingRequests === 0){
-      this.loadingService.hideLoading();
+      setTimeout(() => {
+        this.loadingService.hideLoading();
+      }, 300);
     }
   }
 
