@@ -36,7 +36,7 @@ export class PaypalButtonComponent implements OnInit{
             {
               amount: {
                 currency_code: 'USD',
-                value: self.order.totalPrice,
+                value: self.order.totalPrice.toFixed(2),
               },
             },
           ],
