@@ -5,6 +5,7 @@ import { User } from '../../../shared/models/User';
 import { ConfirmDialogComponent } from '../../partials/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EditOrderComponent } from '../../partials/edit-order/edit-order.component';
+import { SortOrdersPipe } from '../../../pipes/sort-order-pipe';
 
 @Component({
   selector: 'app-orders',
@@ -20,7 +21,7 @@ export class OrdersComponent{
   user!: User;
 
   constructor(private orderService: OrderService,
-              private dialog: MatDialog
+              private dialog: MatDialog,
   ) {
     this.user = JSON.parse(localStorage.getItem('user') || '{}');
 
