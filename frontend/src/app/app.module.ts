@@ -30,6 +30,17 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { PaymentPageComponent } from './components/pages/payment-page/payment-page.component';
 import { PaypalButtonComponent } from './components/partials/paypal-button/paypal-button.component';
 import { OrderTrackPageComponent } from './components/pages/order-track-page/order-track-page.component';
+import { OrdersComponent } from './components/pages/orders/orders.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { ConfirmDialogComponent } from './components/partials/confirm-dialog/confirm-dialog.component';
+import { EditOrderComponent } from './components/partials/edit-order/edit-order.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +65,10 @@ import { OrderTrackPageComponent } from './components/pages/order-track-page/ord
     MapComponent,
     PaymentPageComponent,
     PaypalButtonComponent,
-    OrderTrackPageComponent
+    OrderTrackPageComponent,
+    OrdersComponent,
+    EditOrderComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -66,12 +80,20 @@ import { OrderTrackPageComponent } from './components/pages/order-track-page/ord
       timeOut: 3000,
       positionClass: 'toast-bottom-right',
       newestOnTop: false
-    })
+    }),
+    MatDialogModule,
+    MatButtonModule,
+    ConfirmDialogComponent,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    MatIconModule
   ],
   providers: [
     provideClientHydration(withEventReplay()),
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

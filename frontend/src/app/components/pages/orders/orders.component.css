@@ -1,0 +1,84 @@
+.orders-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.order-details {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.order-items {
+  flex: 1;
+}
+
+.order-item h3 {
+  margin-top: 0;
+}
+
+.order-items-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.order-item-detail {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.order-item-detail img.item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.order-item-detail .item-details {
+  flex: 1;
+}
+
+.order-item-detail p {
+  margin: 5px 0;
+}
+
+.edit-button, .cancel-button {
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #d32f2f;
+}

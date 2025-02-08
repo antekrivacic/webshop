@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Edit Order</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Address</mat-label>
+    <input matInput [(ngModel)]="data.address">
+  </mat-form-field>
+
+  <div *ngFor="let item of data.items; let i = index" class="order-item">
+    <mat-form-field>
+      <mat-label>Item Name</mat-label>
+      <input matInput [(ngModel)]="item.item.name" disabled>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input matInput type="number" [(ngModel)]="item.price" disabled>
+    </mat-form-field>
+    
+    <button mat-icon-button color="warn" (click)="removeItem(i)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSave()" cdkFocusInitial>Save</button>
+</div>

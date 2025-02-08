@@ -58,4 +58,38 @@ router.get('/track/:id', asyncHandler(async(req:any, res:any) => {
     res.send(order);
 }))
 
+router.get('/all', asyncHandler(async (req:any, res:any) => {
+    const orders = await OrderModel.find();
+    res.send(orders);
+}));
+
+router.get('/orderedItems', asyncHandler(async (req:any, res:any) => {
+    const orders = await OrderModel.find({user: req.user.id});
+    res.send(orders);
+}));
+
+router.delete('/cancel/:id', asyncHandler(async (req:any, res:any) => {
+    const orderId = req.params.id;
+    const order = await OrderModel.findById(orderId);
+    if (!order) {
+        res.status(HTTP_BAD_REQUEST).send('Order not found');
+        return;
+    }
+    await order.deleteOne();
+    res.send({ message: 'Order cancelled successfully' });
+}));
+
+router.put('/edit/:id', asyncHandler(async (req:any, res:any) => {
+    const orderId = req.params.id;
+    const updatedOrder = req.body;
+    const order = await OrderModel.findById(orderId);
+    if (!order) {
+        res.status(HTTP_BAD_REQUEST).send('Order not found');
+        return;
+    }
+    Object.assign(order, updatedOrder);
+    await order.save();
+    res.send(order);
+}));
+
 export default router;
