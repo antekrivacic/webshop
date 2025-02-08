@@ -29,11 +29,20 @@ export class OrdersComponent{
   }
 
   loadOrders(): void{
-    this.orderService.getOrderedItems().subscribe(orders => {
-      this.orders = orders;
-    }, error => {
-      this.errorMessage = error;
-    })
+    if(this.user.isAdmin){
+      this.orderService.getOrders().subscribe(orders => {
+        this.orders = orders;
+      }, error => {
+        this.errorMessage = error;
+      });
+    }
+    else{
+      this.orderService.getOrderedItems().subscribe(orders => {
+        this.orders = orders;
+      }, error => {
+        this.errorMessage = error;
+      });
+    }
   }
 
   cancelOrder(orderId: number) :void{

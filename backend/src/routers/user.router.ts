@@ -61,11 +61,32 @@ router.post('/register', asyncHandler(
     }
 ))
 
+router.put('/edit/:id', asyncHandler(
+    async (req, res) => {
+        const user = await UserModel.findById(req.params.id);
+        if(!user){
+            res.status(HTTP_BAD_REQUEST).send("User not found");
+            return;
+        }
+
+        const {name, email, password, address} = req.body;
+        user.name = name;
+        user.email = email;
+        user.address = address;
+        if(password){
+            user.password = await bcrypt.hash(password, 10);
+        }
+
+        await user.save();
+        res.send(generateTokenResponse(user));
+    }
+));
+
 const generateTokenResponse = (user:any) => {
     const token = jwt.sign({
         id: user.id, email: user.email, isAdmin: user.isAdmin
     }, process.env.JWT_SECRET!, {
-        expiresIn: "8h"
+        expiresIn: "30d"
     })
 
     return {

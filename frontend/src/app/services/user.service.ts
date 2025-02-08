@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/User';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
+import { USER_EDIT_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
 
@@ -77,6 +77,23 @@ export class UserService {
     return new User();
   }
 
+  updateUser(user: User): Observable<User>{
+    return this.http.put<User>(`${USER_EDIT_URL}/${user.id}`, user).pipe(
+      tap({
+        next: (updatedUser) => {
+          this.setUserToLocalStorage(updatedUser);
+          this.userSubject.next(updatedUser);
+          this.toastrService.success(
+            `Profile updated successfully!`,
+            'Update Successful'
+          )
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse.error, 'Update Failed');
+        }
+      })
+    )
+  }
 }
 
 

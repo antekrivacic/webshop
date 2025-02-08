@@ -41,6 +41,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { SortOrdersPipe } from './pipes/sort-order-pipe';
+import { ProfileComponent } from './components/pages/profile/profile.component';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import { SortOrdersPipe } from './pipes/sort-order-pipe';
     OrderTrackPageComponent,
     OrdersComponent,
     EditOrderComponent,
+    ProfileComponent,
     
   ],
   imports: [
