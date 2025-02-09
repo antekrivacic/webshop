@@ -9,6 +9,7 @@ export const ITEM_BY_ID_URL = ITEMS_URL + '/';
 export const USER_LOGIN_URL = BASE_URL + '/api/users/login';
 export const USER_REGISTER_URL = BASE_URL + '/api/users/register';
 export const USER_EDIT_URL = BASE_URL + '/api/users/edit';
+export const SHOW_USERS_URL = BASE_URL + '/api/users/show';
 
 export const ORDERS_URL = BASE_URL + '/api/orders';
 export const ORDER_CREATE_URL = ORDERS_URL + '/create';

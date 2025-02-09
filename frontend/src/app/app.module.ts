@@ -44,6 +44,7 @@ import { SortOrdersPipe } from './pipes/sort-order-pipe';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { DashboardPageComponent } from './components/pages/dashboard-page/dashboard-page.component';
 AOS.init();
 
 @NgModule({
@@ -73,6 +74,7 @@ AOS.init();
     OrdersComponent,
     EditOrderComponent,
     ProfileComponent,
+    DashboardPageComponent,
     
   ],
   imports: [

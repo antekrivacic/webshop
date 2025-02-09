@@ -2,7 +2,7 @@
   text-align: center;
   padding: 100px 0; 
   min-height: 100vh;
-  margin-top: 20rem;
+  margin-top: 15rem;
 }
 
  h1 {
@@ -20,7 +20,7 @@
   padding: 50px 20px;
   border-radius: 10px;
   margin-bottom: 40px;
-  min-height: 60vh;
+  min-height: 70vh;
 }
 
 .about-us h2 {
@@ -134,7 +134,7 @@ ul {
     padding: 0.3rem 0.7rem;
   }
   .spacing {
-    margin-bottom: 10rem;
+    margin-bottom: 5rem;
     padding: 20px;
     border-radius: 10px;
   }

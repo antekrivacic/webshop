@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/User';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { USER_EDIT_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
+import { SHOW_USERS_URL, USER_EDIT_URL, USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
 import { IUserRegister } from '../shared/interfaces/IUserRegister';
 
@@ -93,6 +93,10 @@ export class UserService {
         }
       })
     )
+  }
+
+  getUsers(): Observable<User[]>{
+    return this.http.get<User[]>(SHOW_USERS_URL);
   }
 }
 

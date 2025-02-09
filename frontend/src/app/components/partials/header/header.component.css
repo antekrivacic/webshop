@@ -7,6 +7,7 @@ header {
     padding: 0;
     border-bottom: 1px solid #1e90ff; /* Dodger Blue */
     z-index: 1000;
+    margin-bottom: 10px;
   }
   
   a {
@@ -29,7 +30,7 @@ header {
   
   a.logo {
     font-weight: bold;
-    padding: 2rem;
+    padding: 1.3rem;
   }
   
   ul {
@@ -39,7 +40,7 @@ header {
   }
   
   ul a {
-    padding: 2rem;
+    padding: 1.3rem;
     display: inline-block;
     font-size: 1.6rem;
   }
@@ -72,3 +73,11 @@ header {
     min-width: 8rem;
   }
   
+  .dashboard a {
+    color: black ;
+  }
+  
+  .dashboard a:hover {
+    color: white;
+    background-color: #1e90ff;
+  }

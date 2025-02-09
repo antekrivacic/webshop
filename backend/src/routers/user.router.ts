@@ -82,11 +82,18 @@ router.put('/edit/:id', asyncHandler(
     }
 ));
 
+router.get('/show', asyncHandler(
+    async (req, res) => {
+        const users = await UserModel.find();
+        res.send(users);
+    }
+));
+
 const generateTokenResponse = (user:any) => {
     const token = jwt.sign({
         id: user.id, email: user.email, isAdmin: user.isAdmin
     }, process.env.JWT_SECRET!, {
-        expiresIn: "30d"
+        expiresIn: '10d'
     })
 
     return {

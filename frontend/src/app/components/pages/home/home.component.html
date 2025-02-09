@@ -16,12 +16,12 @@
 <div class="" data-aos="fade-up" data-aos-duration="1000">
   <app-tags></app-tags>
 </div>
-<div  data-aos="fade-up" data-aos-duration="1000">
-  <app-not-found
+
+  <app-not-found data-aos="fade-up" data-aos-duration="1000"
     [visible]="!items || !items.length"
     resetLinkText="Reset Search"
   ></app-not-found>
-</div>
+
 <ul>
     <li *ngFor="let item of items" data-aos="fade-up" data-aos-duration="1000">
         <a routerLink="/item/{{item.id}}">

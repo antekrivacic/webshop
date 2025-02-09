@@ -1,37 +1,41 @@
-<app-not-found 
+
+
+<div class="container">
+  <app-not-found 
   [visible]="!orders || !orders.length"
   title="You have no orders yet!"
   resetLinkText="Back to Home">
 </app-not-found>
 
-<app-title *ngIf="orders && orders.length" [title]="user.isAdmin ? 'All Orders' : 'Your Orders'" margin="1.5rem 0 0 2.5rem">
-</app-title>
+  <app-title *ngIf="orders && orders.length" [title]="user.isAdmin ? 'All Orders' : 'Your Orders'" margin="1.5rem 0 0 2.5rem">
+  </app-title>
 
-<div *ngIf="orders && orders.length">
-  <ul class="orders-list">
-    <li *ngFor="let order of orders | sortOrders:'desc' " class="order-item">
-      <div class="order-details">
-        <h3>Order ID: {{order.id}}<a routerLink="/track/{{order.id}}">🔍</a></h3>
-        <p><strong>Total Price:</strong> {{ order.totalPrice | currency }}</p>
-        <p><strong>Status:</strong> {{ order.status }}</p>
-        <p><strong>Ordered on:</strong> {{ order.createdAt | date:'short' }}</p>
-        <p><strong>Billing Address:</strong> {{ order.address }}</p>
-        <button (click)="editOrder(order.id)" class="edit-button">EDIT ORDER</button>  
-        <button (click)="cancelOrder(order.id)" class="cancel-button">CANCEL ORDER</button>  
-      </div>
-      <div class="order-items">
-        <h3>Items:</h3>
-        <ul class="order-items-list">
-          <li *ngFor="let item of order.items" class="order-item-detail">
-            <img [src]="item.item.imageUrl" alt="{{ item.item.name }}" class="item-image">
-            <div class="item-details">
-              <p><strong>Item Name:</strong> {{ item.item.name }}</p>
-              <p><strong>Quantity:</strong> {{ item.quantity }}</p>
-              <p><strong>Price:</strong> {{ item.price | currency }}</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </li>
-  </ul>
+  <div *ngIf="orders && orders.length">
+    <ul class="orders-list">
+      <li *ngFor="let order of orders | sortOrders:'desc' " class="order-item">
+        <div class="order-details">
+          <h3>Order ID: {{order.id}}<a routerLink="/track/{{order.id}}">🔍</a></h3>
+          <p><strong>Total Price:</strong> {{ order.totalPrice | currency }}</p>
+          <p><strong>Status:</strong> {{ order.status }}</p>
+          <p><strong>Ordered on:</strong> {{ order.createdAt | date:'short' }}</p>
+          <p><strong>Billing Address:</strong> {{ order.address }}</p>
+          <button (click)="editOrder(order.id)" class="edit-button">EDIT ORDER</button>  
+          <button (click)="cancelOrder(order.id)" class="cancel-button">CANCEL ORDER</button>  
+        </div>
+        <div class="order-items">
+          <h3>Items:</h3>
+          <ul class="order-items-list">
+            <li *ngFor="let item of order.items" class="order-item-detail">
+              <img [src]="item.item.imageUrl" alt="{{ item.item.name }}" class="item-image">
+              <div class="item-details">
+                <p><strong>Item Name:</strong> {{ item.item.name }}</p>
+                <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+                <p><strong>Price:</strong> {{ item.price | currency }}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
