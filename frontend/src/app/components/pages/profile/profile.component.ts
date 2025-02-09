@@ -4,6 +4,9 @@ import { UserService } from '../../../services/user.service';
 import { User } from '../../../shared/models/User';
 import { ConfirmDialogComponent } from '../../partials/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
+import { PasswordMatchValidator } from '../../../shared/validators/password_match_validator';
+import { error } from 'console';
 
 @Component({
   selector: 'app-profile',
@@ -20,12 +23,13 @@ export class ProfileComponent {
 
   constructor(private fb: FormBuilder,
      private userService: UserService,
-     private dialog: MatDialog
+     private dialog: MatDialog,
+     private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
     this.user = this.userService.currentUser;
-        
+
     this.profileForm = this.fb.group({
       name: [this.user.name, Validators.required],
       email: [this.user.email, [Validators.required, Validators.email]],
@@ -33,8 +37,8 @@ export class ProfileComponent {
       password: ['', [Validators.minLength(5)]],
       confirmPassword: ['']
     },{
-    }
-  );
+      validators: PasswordMatchValidator('password', 'confirmPassword')
+    });
   }
 
   get fc() {
@@ -42,15 +46,18 @@ export class ProfileComponent {
   }
 
   submit(): void {
+    this.isSubmitted = true;
+    if (this.profileForm.invalid) {
+        this.toastrService.error('Please fill in the form correctly', );
+        this.isSubmitted = false;
+        return;
+    }
+
     const dialogRef = this.dialog.open(ConfirmDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       
       if(result){
-        this.isSubmitted = true;
-        if (this.profileForm.invalid) {
-          return;
-        }
 
         const updatedUser = {
           ...this.user,
@@ -65,6 +72,7 @@ export class ProfileComponent {
           },
           error: (error) => {
             this.isSubmitted = false;
+            this.toastrService.error(error.error, 'Update Failed');
           }
         });
       }

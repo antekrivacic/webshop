@@ -1,12 +1,29 @@
-<app-search></app-search>
-<app-tags></app-tags>
-<app-not-found
-[visible]="!items || !items.length"
-resetLinkText="Reset Search"
->
-</app-not-found>
+<div class="home-page" data-aos="fade-up" data-aos-duration="1000">
+    <h1>Welcome to Our Webshop</h1>
+    <p>Discover the best products at unbeatable prices!</p>
+  </div>
+<div>
+
+<div class="about-us" data-aos="fade-up" data-aos-duration="1000">
+  <h1>About Us</h1>
+  <p>We are a leading webshop offering a wide range of products at unbeatable prices. Our mission is to provide the best shopping experience for our customers.</p>
+</div>
+
+
+<div class="spacing" data-aos="fade-up" data-aos-duration="1000">
+  <app-search></app-search>
+</div>
+<div class="" data-aos="fade-up" data-aos-duration="1000">
+  <app-tags></app-tags>
+</div>
+<div  data-aos="fade-up" data-aos-duration="1000">
+  <app-not-found
+    [visible]="!items || !items.length"
+    resetLinkText="Reset Search"
+  ></app-not-found>
+</div>
 <ul>
-    <li *ngFor="let item of items">
+    <li *ngFor="let item of items" data-aos="fade-up" data-aos-duration="1000">
         <a routerLink="/item/{{item.id}}">
             <img [src]="item.imageUrl" [alt]="item.name">
             <div class="content">

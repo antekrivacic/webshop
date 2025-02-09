@@ -1,3 +1,38 @@
+.home-page {
+  text-align: center;
+  padding: 100px 0; 
+  min-height: 100vh;
+  margin-top: 20rem;
+}
+
+ h1 {
+  font-size: 3rem; 
+  margin-bottom: 20px;
+}
+
+.home-page p {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+.about-us {
+  text-align: center;
+  padding: 50px 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  min-height: 60vh;
+}
+
+.about-us h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-us p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
 ul {
     display: flex;
     justify-content: center;
@@ -5,7 +40,7 @@ ul {
     flex-wrap: wrap;
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin-top: 2rem;
   }
   
   li a {
@@ -98,4 +133,8 @@ ul {
     border-radius: 0.5rem;
     padding: 0.3rem 0.7rem;
   }
-  
+  .spacing {
+    margin-bottom: 10rem;
+    padding: 20px;
+    border-radius: 10px;
+  }

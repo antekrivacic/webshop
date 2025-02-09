@@ -1,12 +1,18 @@
 header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background: white;
     padding: 0;
     border-bottom: 1px solid #1e90ff; /* Dodger Blue */
+    z-index: 1000;
   }
   
   a {
     color: #4682b4; /* Steel Blue */
+    padding: 2rem;
+    font-size: 1.6rem;
   }
   
   a:hover {
@@ -23,7 +29,7 @@ header {
   
   a.logo {
     font-weight: bold;
-    padding: 1rem;
+    padding: 2rem;
   }
   
   ul {
@@ -33,8 +39,9 @@ header {
   }
   
   ul a {
-    padding: 1rem;
+    padding: 2rem;
     display: inline-block;
+    font-size: 1.6rem;
   }
   
   a span {

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, Renderer2 } from '@angular/core';
 import { Item } from '../../../shared/models/Item';
 import { ItemService } from '../../../services/item.service';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +12,12 @@ import { Observable } from 'rxjs';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements AfterViewInit{
 
   items:Item[] = [];
-  constructor(private itemService: ItemService, activatedRoute: ActivatedRoute) {
+  constructor(private itemService: ItemService, activatedRoute: ActivatedRoute,
+    private renderer: Renderer2
+  ) {
     let itemsObservable : Observable<Item[]>;
 
     activatedRoute.params.subscribe((params) => {
@@ -29,8 +32,18 @@ export class HomeComponent {
           this.items = serverItems
         })
     })
-
+  }
+  ngAfterViewInit(): void {
+    AOS.init();
+    this.addAosAttributes();
   }
 
+  addAosAttributes(): void {
+    const elements = document.querySelectorAll('app-search, app-tags, app-not-found, li');
+    elements.forEach(element => {
+      this.renderer.setAttribute(element, 'data-aos', 'fade-in');
+      this.renderer.setAttribute(element, 'data-aos-duration', '1000');
 
+    });
+  }
 }

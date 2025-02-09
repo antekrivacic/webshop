@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'payment', component: PaymentPageComponent, canActivate: [authGuard]},
   {path: 'track/:orderId', component: OrderTrackPageComponent, canActivate: [authGuard]},
   {path: 'orders', component: OrdersComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent, canActivate: [authGuard]}
 ];
 
 @NgModule({

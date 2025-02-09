@@ -42,7 +42,9 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { SortOrdersPipe } from './pipes/sort-order-pipe';
 import { ProfileComponent } from './components/pages/profile/profile.component';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 
 @NgModule({
   declarations: [
@@ -91,7 +93,8 @@ import { ProfileComponent } from './components/pages/profile/profile.component';
     MatInputModule,
     FormsModule,
     MatIconModule,
-    SortOrdersPipe
+    SortOrdersPipe,
+  
   ],
   providers: [
     provideClientHydration(withEventReplay()),
