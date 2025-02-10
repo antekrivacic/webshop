@@ -1,6 +1,10 @@
+.container {
+margin-top: 5rem;
+}
+
 .dashboard {
   padding: 20px;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 table {

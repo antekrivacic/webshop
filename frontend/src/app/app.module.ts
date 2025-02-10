@@ -45,6 +45,7 @@ import { ProfileComponent } from './components/pages/profile/profile.component';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { DashboardPageComponent } from './components/pages/dashboard-page/dashboard-page.component';
+import { ReviewsPageComponent } from './components/pages/reviews-page/reviews-page.component';
 AOS.init();
 
 @NgModule({
@@ -75,6 +76,7 @@ AOS.init();
     EditOrderComponent,
     ProfileComponent,
     DashboardPageComponent,
+    ReviewsPageComponent,
     
   ],
   imports: [

@@ -89,11 +89,36 @@ router.get('/show', asyncHandler(
     }
 ));
 
+router.delete('/delete/:id', asyncHandler(
+    async (req, res) => {
+        const user = await UserModel.findById(req.params.id);
+        if(!user){
+            res.status(HTTP_BAD_REQUEST).send("User not found");
+            return;
+        }
+
+        await user.deleteOne();
+        res.send("User deleted");
+    }
+));
+
+router.get('/:id', asyncHandler(
+    async (req, res) => {
+        const user = await UserModel.findById(req.params.id);
+        if(!user){
+            res.status(HTTP_BAD_REQUEST).send("User not found");
+            return;
+        }
+
+        res.send(user);
+    }
+));
+
 const generateTokenResponse = (user:any) => {
     const token = jwt.sign({
         id: user.id, email: user.email, isAdmin: user.isAdmin
     }, process.env.JWT_SECRET!, {
-        expiresIn: '10d'
+        expiresIn: '20d'
     })
 
     return {

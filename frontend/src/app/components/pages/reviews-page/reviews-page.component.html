@@ -1,0 +1,24 @@
+<div class="reviews-container">
+    <h1>Reviews</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Product</th>
+          <th>Rating</th>
+          <th>Comment</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let review of reviews">
+            <td>{{ review.user }}</td>
+            <td>{{ review.item }}</td>
+            <td>{{ review.rating }}</td>
+            <td>{{ review.comment }}</td>
+            <td>{{ review.createdAt | date:'short' }}</td>
+            <td>{{ review.updatedAt | date:'short' }}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>

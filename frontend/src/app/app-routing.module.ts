@@ -12,6 +12,7 @@ import { OrderTrackPageComponent } from './components/pages/order-track-page/ord
 import { OrdersComponent } from './components/pages/orders/orders.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
 import { DashboardPageComponent } from './components/pages/dashboard-page/dashboard-page.component';
+import { ReviewsPageComponent } from './components/pages/reviews-page/reviews-page.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'track/:orderId', component: OrderTrackPageComponent, canActivate: [authGuard]},
   {path: 'orders', component: OrdersComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [authGuard]},
-  {path: 'dashboard', component: DashboardPageComponent, canActivate: [authGuard]}
+  {path: 'dashboard', component: DashboardPageComponent, canActivate: [authGuard]},
+  {path: 'reviews', component: ReviewsPageComponent}
 ];
 
 @NgModule({

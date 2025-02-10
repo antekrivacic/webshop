@@ -1,3 +1,5 @@
+import exp from "constants";
+
 const BASE_URL = 'http://localhost:5000';
 
 export const ITEMS_URL = BASE_URL + '/api/items';
@@ -10,6 +12,8 @@ export const USER_LOGIN_URL = BASE_URL + '/api/users/login';
 export const USER_REGISTER_URL = BASE_URL + '/api/users/register';
 export const USER_EDIT_URL = BASE_URL + '/api/users/edit';
 export const SHOW_USERS_URL = BASE_URL + '/api/users/show';
+export const USER_DELETE_URL = BASE_URL + '/api/users/delete';
+export const USER_BY_ID_URL = BASE_URL + '/api/users/';
 
 export const ORDERS_URL = BASE_URL + '/api/orders';
 export const ORDER_CREATE_URL = ORDERS_URL + '/create';
@@ -21,3 +25,6 @@ export const ALL_ORDRES_URL = ORDERS_URL + '/all';
 export const ORDERED_ITEMS_URL = ORDERS_URL + '/orderedItems';
 export const ORDER_CANCEL_URL = ORDERS_URL + '/cancel';
 export const ORDER_EDIT_URL = ORDERS_URL + '/edit';
+
+export const REVIEWS_URL = BASE_URL + '/api/reviews';
+export const REVIEW_BY_ID_URL = REVIEWS_URL + 'api/reviewByItemId/';

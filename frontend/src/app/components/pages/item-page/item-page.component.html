@@ -33,4 +33,18 @@
 
         <button (click)="addToCart()">Add To Cart</button>
     </div>
+
+    <div class="reviews">
+        <h1>Reviews</h1>
+        <ul *ngFor="let review of reviews">
+            <li>
+                <div class="user">{{ review.user }}</div>
+                <div class="rating">
+                    <span *ngFor="let i of [1, 2, 3, 4, 5]" class="star {{ i <= review.rating ? 'full' : 'empty' }}">★</span>
+                </div>
+                <div class="comment">{{ review.comment }}</div>
+                <div class="createdAt">{{ review.createdAt | date:'short' }}</div>
+            </li>
+        </ul>
+    </div>
 </div>

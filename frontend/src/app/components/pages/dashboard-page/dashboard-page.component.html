@@ -1,35 +1,43 @@
-<div class="dashboard">
-  <app-title 
-  [title]="'Dashboard'"
-   class="title"
-   
-   ></app-title>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>Admin</th>
-        <th>Created At</th>
-        <th>Updated At</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.address }}</td>
-        <td>{{ user.isAdmin ? 'Yes' : 'No' }}</td>
-        <td>{{ user.createdAt | date:'short' }}</td>
-        <td>{{ user.updatedAt | date:'short' }}</td>
-        <td>
-          <button (click)="deleteUser(user.id)" class="delete-button">
-            🗑️
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="container">
+  <app-not-found
+    [visible]="!users || !users.length || !currentUser.isAdmin"
+    resetLinkText="Back to Home"
+    notFoundMessage="Nothing found"
+  ></app-not-found>
+
+  <div *ngIf="currentUser.isAdmin" class="dashboard">
+    <app-title 
+    [title]="'Dashboard'"
+    class="title"
+    
+    ></app-title>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Admin</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.address }}</td>
+          <td>{{ user.isAdmin ? 'Yes' : 'No' }}</td>
+          <td>{{ user.createdAt | date:'short' }}</td>
+          <td>{{ user.updatedAt | date:'short' }}</td>
+          <td>
+            <button *ngIf="user.id !== currentUser.id" (click)="deleteUser(user.id)" class="delete-button">
+              🗑️
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
